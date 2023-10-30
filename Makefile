@@ -49,7 +49,7 @@ transform_load:
 
 # Example: Create a database entry
 create:
-	cargo run query "INSERT INTO cerealDB (name, calories, protein, fat, sugars, vitamins, rating) VALUES ('Best cereal', 150, 3, 1, 1, 2, 30, 99.9);"
+	cargo run query "INSERT INTO cerealDB (name, calories, protein, fat, sugars, vitamins, rating) VALUES ('Best cereal', 150, 3, 1, 1, 30, 99.9);"
 
 # Example: Read from the database
 read:
