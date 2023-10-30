@@ -18,3 +18,7 @@ DELETE FROM AirlineSafetyDB WHERE id=57;
 SELECT * FROM AirlineSafetyDB WHERE airline = 'Alaska Airlines';
 ```
 
+```sql
+SELECT * FROM cerealDB WHERE name = 'Cheerios';
+```
+
