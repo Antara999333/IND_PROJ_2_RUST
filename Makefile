@@ -49,19 +49,19 @@ transform_load:
 
 # Example: Create a database entry
 create:
-	cargo run query "INSERT INTO AirlineSafetyDB (airline, avail_seat_km_per_week, incidents_85_99, fatal_accidents_85_99, fatalities_85_99, incidents_00_14, fatal_accidents_00_14, fatalities_00_14) VALUES ('Happy Airlines', 965346770, 1, 1, 1, 1, 1, 1);"
+	cargo run query "INSERT INTO AirlineSafetyDB (name, calories, protein, fat, sugars, vitamins, rating) VALUES ('Best cereal', 150, 3, 1, 1, 2, 30, 99.9);"
 
 # Example: Read from the database
 read:
-	cargo run query "SELECT * FROM AirlineSafetyDB WHERE airline = 'Happy Airlines';"
+	cargo run query "SELECT * FROM cerealDB WHERE cereal = 'Best cereal';"
 
 # Example: Update a database entry
 update:
-	cargo run query "UPDATE AirlineSafetyDB SET airline='Happy Airlines', avail_seat_km_per_week=965346770, incidents_85_99=0, fatal_accidents_85_99=0, fatalities_85_99=0, incidents_00_14=0, fatal_accidents_00_14=0, fatalities_00_14=0 WHERE id=57;"
+	cargo run query "UPDATE cerealDB SET cereal='Best cereal', calories=140, protein=2, fat=0, sugars=5, vitamins=25, rating=90 WHERE id=78;"
 
 # Example: Delete a database entry
 delete:
-	cargo run query "DELETE FROM AirlineSafetyDB WHERE id=57;"
+	cargo run query "DELETE FROM cerealDB WHERE id=78;"
 
 # Generate and push changes to GitHub
 generate_and_push:
