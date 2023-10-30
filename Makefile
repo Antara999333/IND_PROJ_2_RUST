@@ -53,11 +53,11 @@ create:
 
 # Example: Read from the database
 read:
-	cargo run query "SELECT * FROM cerealDB WHERE cereal = 'Best cereal';"
+	cargo run query "SELECT * FROM cerealDB WHERE name='Best cereal';"
 
 # Example: Update a database entry
 update:
-	cargo run query "UPDATE cerealDB SET cereal='Best cereal', calories=140, protein=2, fat=0, sugars=5, vitamins=25, rating=90 WHERE id=78;"
+	cargo run query "UPDATE cerealDB SET name='Best cereal', calories=140, protein=2, fat=0, sugars=5, vitamins=25, rating=90 WHERE id=78;"
 
 # Example: Delete a database entry
 delete:
