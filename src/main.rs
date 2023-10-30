@@ -1,5 +1,5 @@
-use std::env;
 use jiwon_shin_sqlite::{extract, query, transform_load};
+use std::env;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
