@@ -1,5 +1,5 @@
-use jiwon_shin_sqlite::{extract, query, transform_load};
 use std::env;
+use jiwon_shin_sqlite::{extract, query, transform_load};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -12,12 +12,12 @@ fn main() {
     match action.as_str() {
         "extract" => {
             extract(
-                "https://github.com/fivethirtyeight/data/blob/master/airline-safety/airline-safety.csv?raw=true",
-                "data/airline-safety.csv",
+                "https://github.com/nogibjj/IDS706_Individual2_PJT/blob/main/data/cereal.csv?raw=true",
+                "data/cereal.csv",
                 "data",
             );
         }
-        "transform_load" => match transform_load("data/airline-safety.csv") {
+        "transform_load" => match transform_load("data/cereal.csv") {
             Ok(_) => println!("Data loaded successfully!"),
             Err(err) => eprintln!("Error: {:?}", err),
         },
