@@ -74,3 +74,11 @@ DELETE FROM cerealDB WHERE id=78;
 SELECT * FROM cerealDB WHERE name = 'Cheerios';
 ```
 
+```sql
+DELETE FROM cerealDB WHERE id=78;
+```
+
+```sql
+SELECT * FROM cerealDB WHERE name='Best cereal';
+```
+
