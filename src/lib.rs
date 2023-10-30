@@ -31,21 +31,20 @@ pub fn extract(url: &str, file_path: &str, directory: &str) {
 }
 
 pub fn transform_load(dataset: &str) -> Result<String> {
-    let conn = Connection::open("AirlineSafetyDB.db")?;
+    let conn = Connection::open("cerealDB.db")?;
 
-    conn.execute("DROP TABLE IF EXISTS AirlineSafetyDB", [])?;
+    conn.execute("DROP TABLE IF EXISTS cerealDB", [])?;
 
     conn.execute(
-        "CREATE TABLE AirlineSafetyDB (
+        "CREATE TABLE cerealDB (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            airline TEXT,
-            avail_seat_km_per_week INTEGER,
-            incidents_85_99 INTEGER,
-            fatal_accidents_85_99 INTEGER,
-            fatalities_85_99 INTEGER,
-            incidents_00_14 INTEGER,
-            fatal_accidents_00_14 INTEGER,
-            fatalities_00_14 INTEGER
+            name TEXT,
+            calories INTEGER,
+            protein INTEGER,
+            fat INTEGER,
+            sugars INTEGER,
+            vitamins INTEGER,
+            rating FLOAT
         )",
         [],
     )?;
@@ -53,25 +52,23 @@ pub fn transform_load(dataset: &str) -> Result<String> {
     let mut rdr = csv::Reader::from_path(dataset).expect("Failed to read dataset");
 
     let mut stmt = conn.prepare(
-        "INSERT INTO AirlineSafetyDB(
-            airline, 
-            avail_seat_km_per_week,
-            incidents_85_99, 
-            fatal_accidents_85_99,
-            fatalities_85_99,
-            incidents_00_14,
-            fatal_accidents_00_14,
-            fatalities_00_14
+        "INSERT INTO cerealDB(
+            name, 
+            calories,
+            protein, 
+            fat,
+            sugars,
+            vitamins,
+            rating
         ) 
-        VALUES (?,?, ?, ?, ?, ?, ?, ?)",
+        VALUES (?, ?, ?, ?, ?, ?, ?)",
     )?;
 
     for result in rdr.records() {
         match result {
             Ok(record) => {
                 stmt.execute(&[
-                    &record[0], &record[1], &record[2], &record[3], &record[4], &record[5],
-                    &record[6], &record[7],
+                    &record[0], &record[1], &record[2], &record[3], &record[4], &record[5], &record[6],
                 ])?;
             }
             Err(err) => {
@@ -80,11 +77,11 @@ pub fn transform_load(dataset: &str) -> Result<String> {
         }
     }
 
-    Ok("AirlineSafetyDB.db".to_string())
+    Ok("cerealDB.db".to_string())
 }
 
 pub fn query(query: &str) -> Result<()> {
-    let conn = Connection::open("AirlineSafetyDB.db")?;
+    let conn = Connection::open("cerealDB.db")?;
     // Read operation
     if query.trim().to_lowercase().starts_with("select") {
         let mut stmt = conn.prepare(query)?;
@@ -97,8 +94,7 @@ pub fn query(query: &str) -> Result<()> {
                 row.get::<usize, i32>(4)?,
                 row.get::<usize, i32>(5)?,
                 row.get::<usize, i32>(6)?,
-                row.get::<usize, i32>(7)?,
-                row.get::<usize, i32>(8)?,
+                row.get::<usize, f32>(7)?,
             ))
         })?;
 
@@ -106,18 +102,17 @@ pub fn query(query: &str) -> Result<()> {
             match result {
                 Ok((
                     id,
-                    airline,
-                    avail_seat_km_per_week,
-                    incidents_85_99,
-                    fatal_accidents_85_99,
-                    fatalities_85_99,
-                    incidents_00_14,
-                    fatal_accidents_00_14,
-                    fatalities_00_14,
+                    name,
+                    calories,
+                    protein,
+                    fat,
+                    sugars,
+                    vitamins,
+                    rating,
                 )) => {
                     println!(
-                        "Result: id={}, airline={}, avail_seat_km_per_week={}, incidents_85_99={}, fatal_accidents_85_99={}, fatalities_85_99={}, incidents_00_14={}, fatal_accidents_00_14={}, fatalities_00_14={}",
-                        id, airline, avail_seat_km_per_week, incidents_85_99, fatal_accidents_85_99, fatalities_85_99, incidents_00_14, fatal_accidents_00_14, fatalities_00_14
+                        "Result: id={}, name={}, calories={}, protein={}, fat={}, sugars={}, vitamins={}, rating={}",
+                        id, name, calories, protein, fat, sugars, vitamins, rating
                     );
                 }
                 Err(e) => eprintln!("Error in row: {:?}", e),
