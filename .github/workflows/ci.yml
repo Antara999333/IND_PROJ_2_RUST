@@ -47,7 +47,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: optimized-binary
-        path: target/release/tina_yi_sqlite
+        path: target/release/jiwon_shin_sqlite
     - name: pull repository
       run: git pull
     - name: add rust logs
