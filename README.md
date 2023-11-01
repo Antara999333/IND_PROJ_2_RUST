@@ -29,7 +29,4 @@ The code does: ETL-Query: [E] Extract a dataset from URL, [T] Transform, [L] Loa
 ## Use of Github Copilot
 Throughout the project's evolution, GitHub Copilot proved indispensable, offering essential code recommendations, especially during the conversion from the original Python codebase to Rust. Furthermore, Copilot assisted in crafting entries for the Makefile, simplifying the build and testing processes, and enhancing my understanding of optimizing Rust binary generation.
 
-## Visualization of Process
-![process (3)](https://github.com/nogibjj/Fall2023_IDS706_MiniProject5_JiayiZhou/assets/143651921/f0480b87-bc09-49f4-9d9a-4f483343284c)
-
 ## Demo Video
