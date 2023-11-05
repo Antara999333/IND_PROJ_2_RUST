@@ -1,33 +1,30 @@
-# Individual Project 2: Rust CLS Binary with SQLite
+# Individual Project 2: Rust CLI Utility with SQLite Integration
 
-## Overview
-This project aims to develop a command line tool in Rust that enables users to perform ETL (Extract, Transform, Load) and CRUD (Create, Read, Update, Delete) operations on an SQLite database. The tool facilitates interactions with the database, allowing users to query, insert, update, and delete records. Additionally, the project leverages GitHub Actions to generate a downloadable Rust binary, making it easy to distribute the code system. Furthermore, this project harnesses the power of GitHub Copilot, an AI programming assistant, to assist in translating code from Python to Rust. This helps expedite the translation process and reduces the likelihood of errors.
+## Project Overview
+In this project, the objective is to create a Rust command-line tool that facilitates ETL (Extract, Transform, Load) and CRUD (Create, Read, Update, Delete) operations on an SQLite database. This tool simplifies interactions with the database, allowing users to execute queries, insert, update, and delete records. Additionally, the project utilizes GitHub Actions for generating a downloadable Rust binary, making code distribution easy. GitHub Copilot, an AI programming assistant, assists in translating code from Python to Rust, streamlining the conversion process while reducing the likelihood of errors.
 
 - Data: The project includes input data files stored in the "Data" directory.
-  - cereal.db: A database file containing information on 80 cereals, such as their calorie content, protein, fat, sugar, vitamin levels, and ratings.
+  - cereal.db: A database file that contains information on 80 cereals, including details like calorie content, protein levels, fat content, sugar, vitamin levels, and user ratings.
 
 ## Functionality
-The code does: ETL-Query: [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query For the ETL-Query lab:
-- [E] Extract a dataset from a URL with CSV format.
-- [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-- [L] Load the transformed data into a SQLite database table using Python's sqlite3 module with create and update operations.
-- [Q] Accept and execute general SQL queries including in CRUD (Create, Read, Update, Delete) operations on the SQLite database to analyze and retrieve insights from the data.
+The codebase provides ETL-Query functionalities: [E] Extract data from a URL, [T] Transform data, [L] Load data into an SQLite Database, and [Q] Query the data. In the context of ETL-Query:
+- [E] Data extraction from a URL in CSV format.
+- [T] Data transformation, including processes like cleaning, filtering, and enrichment to prepare it for analysis.
+- [L] Loading of the transformed data into an SQLite database table, using Python's sqlite3 module, with capabilities for creating and updating records.
+- [Q] Acceptance and execution of general SQL queries, including CRUD (Create, Read, Update, Delete) operations on the SQLite database, facilitating data analysis and insights retrieval.
 
 ## Project Steps
-1. Clone the repository or run the project in GitHub Codespaces.
-2. Create a `Cargo.toml` file and execute `Cargo build` to install project dependencies.
-3. Run the program to interact with the SQLite database, allowing you to query the data.
-4. Insert new data, update existing records, or remove records from the database as necessary.
-5. Build an optimized release binary in Rust, and download it for easy distribution.
+1. Start by cloning the repository or running the project in GitHub Codespaces.
+2. Create a `Cargo.toml` file and execute `Cargo build` to install necessary project dependencies.
+3. Run the program to interact with the SQLite database, enabling data queries.
+4. Perform actions like inserting new data, updating existing records, or removing records from the database as needed.
+5. Build an optimized release binary in Rust and download it for easy distribution.
 
-## CRUD Operation Results
+## Results of CRUD Operations
 ![image](https://github.com/nogibjj/IDS706_Individual2_PJT/assets/141780408/6bf6cdc9-541d-4c87-9649-29949adebae8)
 
 ## Optimized Rust Binary
 ![image](https://github.com/nogibjj/IDS706_Individual2_PJT/assets/141780408/a18ce787-2d4b-452f-ac7a-8452287ce9f5)
 
-## Use of Github Copilot
-Throughout the project's evolution, GitHub Copilot proved indispensable, offering essential code recommendations, especially during the conversion from the original Python codebase to Rust. Furthermore, Copilot assisted in crafting entries for the Makefile, simplifying the build and testing processes, and enhancing my understanding of optimizing Rust binary generation.
-
-## Demo Video
-[Demo Video](https://youtu.be/Ger4iQg12SE) 
+## Utilizing GitHub Copilot
+Throughout the project's development, GitHub Copilot proved invaluable by offering essential code recommendations, particularly during the conversion from the original Python codebase to Rust. Copilot also assisted in creating entries for the Makefile, simplifying build and testing processes, and enhancing my understanding of optimizing Rust binary generation.
